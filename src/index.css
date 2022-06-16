@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  input[type="number"] {
+    @apply border rounded-md px-2 py-1 text-lg;
+  }
+}
