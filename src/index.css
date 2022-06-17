@@ -6,4 +6,8 @@
   input[type="number"] {
     @apply border rounded-md px-2 py-1 text-lg;
   }
+
+  button {
+    @apply rounded-md px-4 py-2 text-white;
+  }
 }

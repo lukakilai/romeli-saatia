@@ -1,23 +1,30 @@
+import { useState } from "react";
 import moment from "moment";
 
-import { hours, getHour, getMinute } from "./helpers";
+import Buttons from "./Buttons";
+
+import getTime from "./helpers";
 
 export default function App() {
-  const time = moment().add(40, "m").add(3, "h").format("h:mm:A");
+  const time = moment().subtract(6, "m").add(3, "h").format("h:mm:A");
+
   const splitTime = time.split(":");
   const hour = +splitTime[0];
   const minute = +splitTime[1];
   const ampm = splitTime[2];
 
-  const [outputHour, outputMinute] = [getHour(hour, minute), getMinute(minute)];
+  const [outputHour, outputMinute] = getTime(hour, minute);
 
   return (
     <div className="w-full h-screen grid place-items-center">
-      <div className="flex flex-col justify-start items-center space-y-8 border">
-        <p className="text-4xl font-bold">{time}</p>
-        <p className="text-4xl font-bold">
-          {outputHour} {outputMinute}
-        </p>
+      <div>
+        <Buttons />
+        <div className="flex flex-col justify-between items-center space-y-8 border h-[200px] px-10 py-6 rounded-md bg-sky-50">
+          <p className="text-4xl font-bold">
+            {outputHour} {outputMinute}
+          </p>
+          <p className="text-2xl font-bold">უფრო ზუსტად - {time}</p>
+        </div>
       </div>
     </div>
   );
