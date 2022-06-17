@@ -73,25 +73,25 @@ export function getHour(hour, minute) {
 
 export function getMinute(minute) {
   switch (true) {
-    case minute > 55 || minute <= 5:
+    case minute > 53 || minute <= 5:
       return "ზუსტად";
       break;
-    case minute > 5 && minute <= 10:
+    case minute > 5 && minute <= 12:
       return "ათი წუთია";
       break;
-    case minute > 10 && minute <= 15:
+    case minute > 12 && minute <= 17:
       return "თხუთმეტი წუთია";
       break;
-    case minute > 15 && minute <= 20:
+    case minute > 17 && minute <= 22:
       return "ოცი წუთია";
       break;
-    case minute > 20 && minute <= 35:
+    case minute > 22 && minute <= 35:
       return "ნახევარია";
       break;
-    case minute > 35 && minute <= 45:
+    case minute > 35 && minute <= 42:
       return "უკლია ოცი";
       break;
-    case minute > 45 && minute <= 55:
+    case minute > 42 && minute <= 53:
       return "უკლია ათი";
       break;
     default:
