@@ -1,30 +1,20 @@
-import { useState } from "react";
-import moment from "moment";
+import { useContext } from "react";
 
-import Buttons from "./Buttons";
+import Buttons from "./components/Buttons";
+import Output from "./components/Output";
+import Loading from "./components/Loading";
 
-import getTime from "./helpers";
+import { AppContext } from "./contexts/AppContextProvider";
 
 export default function App() {
-  const time = moment().subtract(6, "m").add(3, "h").format("h:mm:A");
-
-  const splitTime = time.split(":");
-  const hour = +splitTime[0];
-  const minute = +splitTime[1];
-  const ampm = splitTime[2];
-
-  const [outputHour, outputMinute] = getTime(hour, minute);
+  const { loading } = useContext(AppContext);
 
   return (
-    <div className="w-full h-screen grid place-items-center">
-      <div>
+    <div className="w-screen h-screen grid place-items-center py-10 px-6">
+      <div className="min-w-[300px] w-1/2 max-w-[350px]">
         <Buttons />
-        <div className="flex flex-col justify-between items-center space-y-8 border h-[200px] px-10 py-6 rounded-md bg-sky-50">
-          <p className="text-4xl font-bold">
-            {outputHour} {outputMinute}
-          </p>
-          <p className="text-2xl font-bold">უფრო ზუსტად - {time}</p>
-        </div>
+        {!loading && <Output />}
+        {loading && <Loading />}
       </div>
     </div>
   );

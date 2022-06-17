@@ -1,3 +1,6 @@
+@import url("//cdn.web-fonts.ge/fonts/archyedt-bold/css/archyedt-bold.min.css");
+@import url("//cdn.web-fonts.ge/fonts/bpg-nino-mkhedruli/css/bpg-nino-mkhedruli.min.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,6 +11,12 @@
   }
 
   button {
-    @apply rounded-md px-4 py-2 text-white;
+    @apply rounded-md px-4 py-2 text-white transition-all duration-75 font-nino text-xl;
+  }
+}
+
+@layer components {
+  .container {
+    @apply h-[250px] rounded-md w-full;
   }
 }
