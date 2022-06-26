@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import Buttons from "./components/Buttons";
 import Output from "./components/Output";
@@ -7,7 +7,11 @@ import Loading from "./components/Loading";
 import { AppContext } from "./contexts/AppContextProvider";
 
 export default function App() {
-  const { loading } = useContext(AppContext);
+  const { loading, setLoading } = useContext(AppContext);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 1000);
 
   return (
     <div className="w-screen h-screen grid place-items-center py-10 px-6">

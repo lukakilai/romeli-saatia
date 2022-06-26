@@ -5,7 +5,7 @@ export const AppContext = createContext();
 export default function AppContextProvider({ children }) {
   const [activeCity, setActiveCity] = useState(1);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   return (
     <AppContext.Provider
